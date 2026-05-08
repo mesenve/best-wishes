@@ -171,6 +171,9 @@ export function WishFlow({ onClose: _onClose, onOpenWall: _onOpenWall, addWish }
                   id="wish-text"
                   className={`parchment ${step === 'sending' ? 'parchment--sending' : ''}`}
                   maxLength={WISH_MAX_LEN}
+                  spellCheck={false}
+                  autoCorrect="off"
+                  autoCapitalize="off"
                   placeholder="A little luck. A little magic. A lot less stress."
                   value={text}
                   disabled={step === 'sending'}
