@@ -764,20 +764,20 @@ body {
   display: flex;
   flex-direction: column;
   /* Keep modal visible even when backdrop blur is flaky */
-  background-color: rgba(14, 18, 30, 0.78);
+  background-color: rgba(14, 18, 30, 0.04);
   background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.024)),
-    linear-gradient(124deg, rgba(187, 205, 255, 0.06), rgba(212, 188, 255, 0.04)),
-    rgba(14, 18, 30, 0.78);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+    linear-gradient(155deg, rgba(255, 255, 255, 0.007), rgba(255, 255, 255, 0.002)),
+    linear-gradient(124deg, rgba(187, 205, 255, 0.006), rgba(212, 188, 255, 0.004)),
+    rgba(14, 18, 30, 0.04);
+  backdrop-filter: blur(4px) saturate(120%);
+  -webkit-backdrop-filter: blur(4px) saturate(120%);
   border: none;
   border-radius: calc(var(--radius) + 6px);
   padding: 1.35rem 1.4rem 1.25rem;
   box-shadow:
-    0 24px 54px rgba(8, 9, 20, 0.24),
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    0 14px 30px rgba(8, 9, 20, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    inset 0 -1px 0 rgba(255, 255, 255, 0.024);
 }
 
 .flow-panel-surface::before {
@@ -787,9 +787,10 @@ body {
   height: 48%;
   border-radius: inherit;
   background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(216, 190, 255, 0.01) 55%,
+    180deg,
+    rgba(255, 255, 255, 0.045) 0%,
+    rgba(255, 255, 255, 0.014) 34%,
+    rgba(216, 190, 255, 0.006) 58%,
     transparent 92%
   );
   pointer-events: none;
@@ -801,10 +802,12 @@ body {
   inset: 0;
   border-radius: inherit;
   background:
-    linear-gradient(108deg, transparent 10%, rgba(255, 255, 255, 0.2) 32%, transparent 54%),
-    radial-gradient(120% 80% at 18% 6%, rgba(255, 255, 255, 0.13), transparent 46%);
+    radial-gradient(120% 84% at 50% -8%, rgba(255, 255, 255, 0.12), transparent 52%),
+    radial-gradient(86% 72% at 16% 92%, rgba(174, 196, 238, 0.045), transparent 58%),
+    radial-gradient(86% 72% at 84% 92%, rgba(174, 196, 238, 0.045), transparent 58%),
+    linear-gradient(108deg, transparent 8%, rgba(255, 255, 255, 0.08) 34%, transparent 56%);
   mix-blend-mode: screen;
-  opacity: 0.32;
+  opacity: 0.26;
   pointer-events: none;
 }
 
@@ -911,18 +914,18 @@ body {
   background:
     linear-gradient(160deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.007)),
     linear-gradient(128deg, rgba(198, 216, 255, 0.018), rgba(190, 167, 255, 0.011)),
-    rgba(16, 22, 34, 0.28);
-  backdrop-filter: blur(10px) saturate(138%);
-  -webkit-backdrop-filter: blur(10px) saturate(138%);
+    rgba(16, 22, 34, 0.05);
+  backdrop-filter: blur(3px) saturate(118%);
+  -webkit-backdrop-filter: blur(3px) saturate(118%);
   color: rgba(255, 255, 255, 0.96);
   font-family: var(--font-sans);
   font-size: 0.69rem;
   line-height: 1.4;
   box-shadow:
-    inset 0 0 20px rgba(255, 255, 255, 0.02),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    0 0 0 1px rgba(232, 240, 255, 0.12),
-    0 12px 24px rgba(10, 9, 22, 0.14);
+    inset 0 0 16px rgba(255, 255, 255, 0.014),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 0 1px rgba(232, 240, 255, 0.09),
+    0 8px 18px rgba(10, 9, 22, 0.1);
 }
 
 .parchment::placeholder {
