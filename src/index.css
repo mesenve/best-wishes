@@ -101,7 +101,12 @@ body {
   top: -14%;
   height: 128%;
   z-index: 0;
-  background-image: url('/img/bg.png');
+  background-image:
+    url('/img/bg.png'),
+    radial-gradient(88% 62% at 50% 88%, rgba(112, 74, 214, 0.26) 0%, rgba(71, 36, 143, 0.14) 42%, transparent 80%),
+    radial-gradient(62% 44% at 18% 16%, rgba(110, 128, 255, 0.18) 0%, transparent 72%),
+    radial-gradient(58% 40% at 84% 24%, rgba(160, 104, 255, 0.16) 0%, transparent 70%),
+    linear-gradient(180deg, #090512 0%, #0a0716 46%, #100a22 100%);
   background-size: cover;
   /* Nudge below center so cover crops less from bottom corners */
   background-position: center 22%;
@@ -763,21 +768,23 @@ body {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  /* Keep modal visible even when backdrop blur is flaky */
-  background-color: rgba(14, 18, 30, 0.04);
+  /* Deterministic base layer to keep local/deploy visually aligned */
+  background-color: rgba(14, 18, 30, 0.36);
   background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.007), rgba(255, 255, 255, 0.002)),
-    linear-gradient(124deg, rgba(187, 205, 255, 0.006), rgba(212, 188, 255, 0.004)),
-    rgba(14, 18, 30, 0.04);
-  backdrop-filter: blur(4px) saturate(120%);
-  -webkit-backdrop-filter: blur(4px) saturate(120%);
+    linear-gradient(154deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03) 42%, rgba(255, 255, 255, 0.018)),
+    linear-gradient(126deg, rgba(187, 205, 255, 0.058), rgba(212, 188, 255, 0.04)),
+    rgba(14, 18, 30, 0.36);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: none;
   border-radius: calc(var(--radius) + 6px);
   padding: 1.35rem 1.4rem 1.25rem;
   box-shadow:
-    0 14px 30px rgba(8, 9, 20, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
-    inset 0 -1px 0 rgba(255, 255, 255, 0.024);
+    0 20px 38px rgba(8, 9, 20, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.075) inset,
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    inset 0 -12px 24px rgba(12, 12, 28, 0.16),
+    inset 0 0 28px rgba(184, 196, 255, 0.04);
 }
 
 .flow-panel-surface::before {
@@ -786,13 +793,15 @@ body {
   inset: 0 0 auto 0;
   height: 48%;
   border-radius: inherit;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.045) 0%,
-    rgba(255, 255, 255, 0.014) 34%,
-    rgba(216, 190, 255, 0.006) 58%,
-    transparent 92%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.09) 0%,
+      rgba(255, 255, 255, 0.03) 28%,
+      rgba(216, 190, 255, 0.016) 56%,
+      transparent 90%
+    ),
+    radial-gradient(68% 46% at 18% 8%, rgba(222, 202, 255, 0.08), transparent 76%);
   pointer-events: none;
 }
 
@@ -802,12 +811,12 @@ body {
   inset: 0;
   border-radius: inherit;
   background:
-    radial-gradient(120% 84% at 50% -8%, rgba(255, 255, 255, 0.12), transparent 52%),
-    radial-gradient(86% 72% at 16% 92%, rgba(174, 196, 238, 0.045), transparent 58%),
-    radial-gradient(86% 72% at 84% 92%, rgba(174, 196, 238, 0.045), transparent 58%),
-    linear-gradient(108deg, transparent 8%, rgba(255, 255, 255, 0.08) 34%, transparent 56%);
-  mix-blend-mode: screen;
-  opacity: 0.26;
+    radial-gradient(120% 84% at 50% -8%, rgba(255, 255, 255, 0.16), transparent 52%),
+    radial-gradient(86% 72% at 16% 92%, rgba(174, 196, 238, 0.06), transparent 58%),
+    radial-gradient(86% 72% at 84% 92%, rgba(174, 196, 238, 0.06), transparent 58%),
+    linear-gradient(108deg, transparent 8%, rgba(255, 255, 255, 0.1) 34%, transparent 56%);
+  mix-blend-mode: normal;
+  opacity: 0.36;
   pointer-events: none;
 }
 
@@ -843,7 +852,9 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.072), transparent 42%);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.02) 42%, transparent 72%),
+    radial-gradient(140% 90% at 50% 0%, rgba(206, 184, 255, 0.08), transparent 62%);
   pointer-events: none;
   z-index: 1;
 }
@@ -912,20 +923,20 @@ body {
   border-radius: 16px;
   border: none;
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.007)),
-    linear-gradient(128deg, rgba(198, 216, 255, 0.018), rgba(190, 167, 255, 0.011)),
-    rgba(16, 22, 34, 0.05);
-  backdrop-filter: blur(3px) saturate(118%);
-  -webkit-backdrop-filter: blur(3px) saturate(118%);
+    linear-gradient(160deg, rgba(255, 255, 255, 0.056), rgba(255, 255, 255, 0.026)),
+    linear-gradient(128deg, rgba(198, 216, 255, 0.046), rgba(190, 167, 255, 0.034)),
+    rgba(16, 22, 34, 0.32);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   color: rgba(255, 255, 255, 0.96);
   font-family: var(--font-sans);
   font-size: 0.69rem;
   line-height: 1.4;
   box-shadow:
-    inset 0 0 16px rgba(255, 255, 255, 0.014),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 0 0 1px rgba(232, 240, 255, 0.09),
-    0 8px 18px rgba(10, 9, 22, 0.1);
+    inset 0 0 24px rgba(255, 255, 255, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 0 0 1px rgba(232, 240, 255, 0.14),
+    0 12px 24px rgba(10, 9, 22, 0.16);
 }
 
 .parchment::placeholder {
@@ -1080,8 +1091,8 @@ body {
   min-width: 8.4rem;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.52);
   border-color: rgba(236, 244, 255, 0.34);
-  backdrop-filter: blur(10px) saturate(145%);
-  -webkit-backdrop-filter: blur(10px) saturate(145%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   background:
     linear-gradient(
       134deg,
@@ -1107,29 +1118,16 @@ body {
 
 .btn.btn-primary.btn-send-sky:disabled {
   color: rgba(255, 255, 255, 0.92);
-}
-
-/* Production-safe fallback for browsers/environments without backdrop-filter */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .flow-panel-surface {
-    background:
-      linear-gradient(155deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-      linear-gradient(124deg, rgba(187, 205, 255, 0.04), rgba(212, 188, 255, 0.03)),
-      rgba(16, 22, 34, 0.42);
-  }
-
-  .parchment {
-    background:
-      linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.014)),
-      linear-gradient(128deg, rgba(198, 216, 255, 0.03), rgba(190, 167, 255, 0.02)),
-      rgba(16, 22, 34, 0.36);
-  }
-
-  .btn-send-sky {
-    background:
-      linear-gradient(134deg, rgba(244, 236, 255, 0.22), rgba(206, 206, 248, 0.18)),
-      rgba(30, 32, 60, 0.56);
-  }
+  border-color: rgba(244, 248, 255, 0.34);
+  background:
+    linear-gradient(136deg, rgba(252, 246, 255, 0.19), rgba(214, 210, 246, 0.13)),
+    rgba(45, 50, 84, 0.61);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.19),
+    0 0 0 1px rgba(238, 230, 255, 0.11),
+    0 8px 16px rgba(7, 9, 20, 0.22);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.52);
+  opacity: 1;
 }
 
 .btn-send-sky::before {
